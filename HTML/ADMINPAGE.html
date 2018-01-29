@@ -1,0 +1,157 @@
+<html lang = "en">
+   <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--   <link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>-->
+       <link rel="stylesheet" href="lib/angular/angular-material.min.css">
+       <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+       <script type="text/javascript" src="lib/angular/angular-animate.min.js"></script>
+       <script type="text/javascript" src="lib/angular/angular-aria.min.js"></script>
+       <script type="text/javascript" src="lib/angular/angular-messages.min.js"></script>
+       <script type="text/javascript" src="lib/angular/angular-material.min.js"></script>
+       <script type="text/javascript" src="lib/angular/angular-route.js"></script>
+       <script type="text/javascript" src="js/controllers.js"></script>
+        <link rel="stylesheet" href="css/app.css">
+       <script type = "text/javascript"  src="js/app.js"></script>  
+       <script>
+        angular.module('hostel', ['ngMaterial']).controller('AppCtrl', function ($scope, $timeout, $mdSidenav) {
+    $scope.toggleLeft = buildToggler('left');
+    $scope.toggleRight = buildToggler('right');
+    
+             
+
+    function buildToggler(componentId) {
+      return function() {
+        $mdSidenav(componentId).toggle();
+      };
+    }
+  });
+      </script>
+       <!--<style>
+           .fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+       .fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+         .layout-row .flex-40
+           {
+               height: auto
+           }
+    
+
+           footer {
+  background-color: #ccc;
+               margin-top:200px;
+}
+           
+           a:link {
+    text-decoration: none;
+            
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+       </style>-->
+</head>
+   <body ng-app = "hostel" ng-cloak>
+       
+       <div ng-controller="AppCtrl" layout="column" style="height: 500px;" ng-cloak>
+           <header>
+           <md-toolbar class = "md-theme-indigo">
+            
+         <div class = "md-toolbar-tools">
+             <div class="lock-size" layout="row" layout-align="center center">
+      <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}"
+                         ng-class="demo.selectedMode">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-warn" ng-click="toggleLeft()" class="md-raised">
+            <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+          </md-button>
+        </md-fab-trigger>
+      </md-fab-speed-dial>
+    </div>
+    <h2 class = "md-flex">Hostel Management System</h2>
+         </div>
+      </md-toolbar>
+          </header> 
+           <main flex>
+           
+               <div>
+  <section layout="row" flex>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left"
+                md-disable-backdrop md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+      </md-toolbar>
+        
+        <!--<md-input-container>
+            <input placeholder="First Name">
+        </md-input-container>-->
+
+      <md-content layout-margin>
+         <mat-nav-list>
+  <mat-list-item *ngFor="let link of links">
+     <a matLine href="#!partials/Dashboard">
+     <h4 mat-line>
+        <mat-icon>Dashboard</mat-icon>
+         </h4></a>
+      <md-divider></md-divider>
+      
+  </mat-list-item>
+  <mat-list-item *ngFor="let link of links">
+     <a matLine href="...">{{ link }}</a>
+    <h4 mat-line (click)="showInfo(link)">
+      <mat-icon>hostler</mat-icon>
+      </h4>
+</mat-list-item>
+             <md-divider></md-divider>
+    <mat-list-item *ngFor="let link of links">
+     <a matLine href="...">{{ link }}</a>
+    <h4 mat-line (click)="showInfo(link)">
+      <mat-icon>Attendance</mat-icon>
+      </h4>
+</mat-list-item>
+             <md-divider></md-divider>
+<mat-list-item *ngFor="let link of links">
+     <a matLine href="...">{{ link }}</a>
+    <h4 mat-line (click)="showInfo(link)">
+      <mat-icon>Transaction</mat-icon>
+      </h4>
+</mat-list-item>
+</mat-nav-list>
+<md-button ng-click="toggleLeft()" class="md-accent">
+Close this Sidenav
+</md-button>
+        
+</md-content>
+</md-sidenav>
+</section></div>
+           </main>
+          <!--  <footer>
+        <div layout="row" layout-align="center center">
+            <h2>My Awesome Footer</h2>
+        </div>
+    </footer>-->
+    
+       </div>
+</body>
+</html>
